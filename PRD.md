@@ -3,7 +3,7 @@
 Status: Draft for hackathon build  
 Last updated: 30 August 2026  
 Product type: Unofficial WebMCP reference implementation  
-Primary language: Bahasa Indonesia
+Primary language: English, while preserving official Indonesian tax terms
 
 ## Product summary
 
@@ -105,7 +105,7 @@ The interface should feel Indonesian without turning cultural elements into deco
 - Add a low-contrast kawung or geometric batik pattern to the header and empty margins. Never place a pattern behind form text.
 - Use fine line details inspired by kebaya embroidery around cards, section dividers, and the progress indicator.
 - Keep tables, labels, validation messages, and controls plain and highly legible.
-- Use Bahasa Indonesia for the product interface. Keep tax terms such as `SPT Tahunan`, `PPh Orang Pribadi`, `Bukti Potong`, `Harta`, and `Utang` unchanged.
+- Use English for interface instructions and explanations. Keep tax terms such as `SPT Tahunan`, `PPh Orang Pribadi`, `Bukti Potong`, `Harta`, and `Utang` unchanged and explain them on first use.
 - Meet WCAG AA contrast, keyboard navigation, visible focus, descriptive errors, and reduced-motion preferences.
 
 The result should look like a trustworthy Indonesian civic product, not a themed government clone.
@@ -526,7 +526,7 @@ Acceptance criteria:
 
 ### Understand validation failures
 
-As an employee, I want errors explained in plain Bahasa Indonesia so that I know what to correct.
+As an employee, I want errors explained in plain English while preserving official Indonesian tax terms so that I know what to correct.
 
 Acceptance criteria:
 
