@@ -3,7 +3,7 @@
 Status: Draft for hackathon build  
 Last updated: 30 August 2026  
 Product type: Unofficial WebMCP reference implementation  
-Primary language: English, while preserving official Indonesian tax terms
+Primary language: English for all navigation, headings, controls, explanations, and warnings. Add Indonesian tax terms as secondary labels only when useful.
 
 ## Product summary
 

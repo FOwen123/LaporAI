@@ -67,4 +67,4 @@ Use the system sans stack for the complete product. Tax forms need stable, famil
 
 ## Voice
 
-Direct and respectful. Use official Indonesian tax terms, then explain what the citizen needs to check. Errors state what happened and how to fix it. Avoid jokes, promotional language, vague success messages, and claims that the simulation provides tax advice.
+Direct and respectful. Lead with English labels and explanations. Include official Indonesian tax terms as secondary references only when useful. Errors state what happened and how to fix it. Avoid jokes, promotional language, vague success messages, and claims that the simulation provides tax advice.

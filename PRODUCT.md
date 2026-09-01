@@ -34,4 +34,4 @@ Calm, civic, precise. The product should lower the stress of a dense official fo
 
 ## Accessibility and inclusion
 
-Meet WCAG 2.2 AA. Support full keyboard navigation, visible focus, 44px touch targets, semantic forms and tables, descriptive errors, reduced motion, zoom to 200 percent, and color-independent status communication. Use English for the interface, preserve official Indonesian tax terms, and keep sentences short enough for first-time filers.
+Meet WCAG 2.2 AA. Support full keyboard navigation, visible focus, 44px touch targets, semantic forms and tables, descriptive errors, reduced motion, zoom to 200 percent, and color-independent status communication. Use English-first navigation, headings, controls, and explanations, with Indonesian tax terms as secondary labels only when useful, and keep sentences short enough for first-time filers.
