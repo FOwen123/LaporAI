@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-labelledby="laporai-logo-title">
+  <title id="laporai-logo-title">LaporAI logo</title>
+  <rect width="48" height="48" rx="11" fill="#2c4a9c"/>
+  <g fill="none" stroke="#ffffff" stroke-width="2.75" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M28.5 9.5H14a4.5 4.5 0 0 0-4.5 4.5v14a4.5 4.5 0 0 0 4.5 4.5h4l3 5.5 1.5-5.5h6a4.5 4.5 0 0 0 4.5-4.5V14a4.5 4.5 0 0 0-4.5-4.5Z"/>
+    <path d="M15.5 22.5h13M15.5 27.5h8"/>
+  </g>
+  <path d="M15.5 16.5h7" fill="none" stroke="#f0b32e" stroke-width="2.75" stroke-linecap="round"/>
+  <path d="M36 25q1.1 4.4 5.5 5.5Q37.1 31.6 36 36q-1.1-4.4-5.5-5.5Q34.9 29.4 36 25Z" fill="#f0b32e"/>
+</svg>
