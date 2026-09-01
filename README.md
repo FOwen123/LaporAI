@@ -1,6 +1,6 @@
 # LaporAI
 
-LaporAI is an unofficial, local-only simulation of an Indonesian employee annual tax return. It demonstrates how a citizen and a browser agent can work through the same visible filing pages using state-aware WebMCP tools while the citizen retains control over approvals, declaration, signing, and simulated submission.
+LaporAI is an unofficial, local-only simulation of an Indonesian employee annual tax return. It demonstrates how a citizen and a browser agent can work through the same visible filing pages using state-aware WebMCP tools while the citizen retains control over approvals, declaration, signing, and simulated submission. WebMCP lets the agent read exact filing requirements, inspect imported records, navigate the workflow, and propose evidence-backed corrections without guessing from the interface.
 
 > **Fictional demo only.** Do not enter a real NIK, NPWP, Coretax password, tax document, address, phone number, bank account, OTP, or signing passphrase. LaporAI is not affiliated with Direktorat Jenderal Pajak and is not tax advice.
 
@@ -8,7 +8,7 @@ LaporAI is an unofficial, local-only simulation of an Indonesian employee annual
 
 1. Continue as the demo taxpayer.
 2. Open **File tax return**. The seven-step workspace starts on Documents and includes BPA1, bank-statement, and financing-statement samples for the active synthetic taxpayer.
-3. Import the samples manually, or give a supported fictional PDF to the browser agent and ask it to use `upload_tax_document`. Documents generated for another profile are rejected.
+3. Ask the browser agent to help choose a document source. `choose_document_source` asks whether to use personal PDFs or the three profile-matched samples. Personal fictional PDFs use `upload_tax_document`; documents generated for another profile are rejected.
 4. Move through Employment income, Assets, Liabilities, and Family. The progress header remains visible and the activity rail attributes each change to `You` or `Agent`.
 5. Ask the agent to review the supporting documents. It will find a fixed deposit missing from Assets and a vehicle-financing balance that differs from the imported statement.
 6. Ask the agent to propose each document-backed correction. WebMCP opens the affected page and produces an exact visible proposal; approve one and reject another.
@@ -42,15 +42,17 @@ Indonesian references: [DJP Coretax overview](https://www.pajak.go.id/id/coretax
 LaporAI's verified agent workflow uses the imperative API:
 
 - The imperative API registers structured read and mutation tools from `document.modelContext`. Each registration receives an `AbortSignal`; React cleanup aborts it to remove the tools. Registration changes with login and filing state, and stale calls are rejected, including after unmount.
+- `get_current_step_requirements` tells the agent what the visible page requires, what is complete, what is missing, whether Next is available, and what to do next.
+- `choose_document_source` asks the taxpayer to use personal PDFs or sample documents. The sample choice imports the BPA1, bank, and financing records generated for the active synthetic profile.
 - `upload_tax_document` accepts the exact base64 bytes of a PDF the taxpayer supplied to the agent. It uses the same 2 MB limit, local extraction, supported-format checks, and active-taxpayer matching as the human file input.
 
 No taxpayer tools exist before demo login. Editing tools disappear on the declaration and receipt screens. There are deliberately no tools for credentials, operating the system file picker, payment, declaration, signing, or submission.
 
-Core tools include `get_filing_requirements`, `upload_tax_document`, `go_to_filing_step`, `next_filing_step`, `previous_filing_step`, `review_prefilled_data`, `review_supporting_documents`, `reconcile_supporting_documents`, `confirm_prefilled_record`, `get_section_data`, `validate_return`, and asset, liability, and dependent proposal tools. Tools read the same reducer state shown on screen. Record changes require a visible approve/reject decision and are attributed to `Agent` in the activity rail.
+Core tools include `get_filing_requirements`, `get_current_step_requirements`, `choose_document_source`, `upload_tax_document`, `go_to_filing_step`, `next_filing_step`, `previous_filing_step`, `review_prefilled_data`, `review_supporting_documents`, `reconcile_supporting_documents`, `confirm_prefilled_record`, `get_section_data`, `validate_return`, and asset, liability, and dependent proposal tools. Tools read the same reducer state shown on screen. Record changes require a visible approve/reject decision and are attributed to `Agent` in the activity rail.
 
 After every successful state-changing tool call, LaporAI opens the relevant page, scrolls the affected record or proposal into view, moves keyboard focus to its heading or approval action, and briefly outlines it. Read-only calls, stale calls, and rejected inputs do not move the page. Reduced-motion preferences disable smooth scrolling.
 
-WebMCP is experimental. Follow the current [Chrome WebMCP documentation](https://developer.chrome.com/docs/ai/agents) for supported builds, flags, or origin-trial requirements.
+WebMCP is experimental. Follow the current [Chrome WebMCP documentation](https://developer.chrome.com/docs/ai/webmcp) for supported builds, flags, or origin-trial requirements.
 
 ## Privacy and security
 
