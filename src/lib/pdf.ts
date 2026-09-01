@@ -1,4 +1,4 @@
-import { parseBpa1Text, type WithholdingRecord } from './tax'
+import { parseBpa1Text, parseSupportingEvidenceText, type SupportingEvidence, type WithholdingRecord } from './tax'
 
 const MAX_PDF_BYTES = 2_000_000
 
@@ -10,7 +10,7 @@ export function validatePdfFile(file: File): void {
   if (!file.size) throw new Error('The PDF is empty.')
 }
 
-export async function extractBpa1FromPdf(file: File): Promise<WithholdingRecord> {
+async function extractPdfText(file: File): Promise<string> {
   validatePdfFile(file)
   const [pdfjs, worker] = await Promise.all([
     import('pdfjs-dist/legacy/build/pdf.mjs'),
@@ -33,7 +33,15 @@ export async function extractBpa1FromPdf(file: File): Promise<WithholdingRecord>
     const content = await page.getTextContent()
     text += `${content.items.map((item) => ('str' in item ? item.str : '')).join('\n')}\n`
   }
-  return parseBpa1Text(text)
+  return text
+}
+
+export async function extractBpa1FromPdf(file: File): Promise<WithholdingRecord> {
+  return parseBpa1Text(await extractPdfText(file))
+}
+
+export async function extractSupportingEvidenceFromPdf(file: File): Promise<SupportingEvidence> {
+  return parseSupportingEvidenceText(await extractPdfText(file))
 }
 
 const escapePdf = (value: string) => value.replace(/([\\()])/g, '\\$1')
